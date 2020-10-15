@@ -12,12 +12,16 @@ function formatCurrentDate(){
     return `${year}${month}${day}-${hours}${minutes}${seconds}`;
 }
 
+function convertFileName(fileName: string) {
+    return fileName.replace(/\s+/g, '_').toLowerCase();
+}
+
 export default {
 
     storage: multer.diskStorage({
         destination: path.join(__dirname, '..', '..', 'storage', 'images'),
         filename: (request, file, cb) => {
-            const fileName = `${formatCurrentDate()}_${file.originalname}`;
+            const fileName = `${formatCurrentDate()}_${convertFileName(file.originalname)}`;
             cb( null, fileName);
         }
     })
