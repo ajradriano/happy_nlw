@@ -1,6 +1,6 @@
 import Image from '../models/Image';
 
-let url = 'http://localhost:4343/storage/images';
+let url = 'http://192.168.237.64:4343/storage/images';
 
 export default {
     render(image: Image) {
